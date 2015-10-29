@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# by ajhl (adriaan larmuseau)
+# voer alle drie de strategien uit en
+# verander de random seed en aantal testen
+
+for k in 1 2 3
+do
+	echo "## strategy == $k" >> results2.txt
+	for j in 32568
+	do
+		echo "--- random seed = $j" >> results2.txt
+		for i in 1 2 3 4 5 6 7 8 9 10
+		do
+			echo "----$i verwaart" >> results.txt
+			./dobbelen -s $k -c 1000000 -i $j -t $i >> results2.txt 
+		done
+	done
+done
+
+exit 0
+
